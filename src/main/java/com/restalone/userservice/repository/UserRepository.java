@@ -1,4 +1,13 @@
 package com.restalone.userservice.repository;
 
-public interface UserRepository {
+import org.springframework.data.mongodb.repository.MongoRepository;
+import com.restalone.userservice.model.User;
+import java.util.List;
+
+public interface UserRepository extends MongoRepository<User, String> {
+
+    // Example custom queries
+    List<User> findByGender(String gender);
+    List<User> findByQualification(String qualification);
+    List<User> findByAccesslevel(String accesslevel);
 }
