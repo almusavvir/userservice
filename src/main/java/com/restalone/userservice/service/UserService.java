@@ -65,5 +65,7 @@ public class UserService {
         return repo.findByFirstName(firstName);
     }
 
-    
+    public List<User> getUsersByLastName(String lastName) {
+        return repo.findByLastName(lastName);
+    }
 }

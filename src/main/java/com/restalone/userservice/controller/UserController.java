@@ -32,6 +32,16 @@ public class UserController {
         return users;
     }
 
+    //Get user by last name
+    @GetMapping("/lastname/{lastName}")
+    public List<User> getUsersByLastName(@PathVariable String lastName) {
+        List<User> users = service.getUsersByLastName(lastName);
+        if (users.isEmpty()) {
+            throw new RuntimeException("No users found with last name - " + lastName);
+        }
+        return users;
+    }
+
     // ✅ POST (Create)
     @PostMapping
     public User createUser(@RequestBody User user) {
