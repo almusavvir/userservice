@@ -23,10 +23,13 @@ public class UserController {
     }
 
     // ✅ GET one user by ID
-    @GetMapping("/{id}")
-    public User getUserById(@PathVariable String id) {
-        return service.getUserById(id)
-                .orElseThrow(() -> new RuntimeException("User not found with id: " + id));
+    @GetMapping("/firstname/{firstName}")
+    public List<User> getUsersByFirstName(@PathVariable String firstName) {
+        List<User> users = service.getUsersByFirstName(firstName);
+        if (users.isEmpty()) {
+            throw new RuntimeException("No users found with first name: " + firstName);
+        }
+        return users;
     }
 
     // ✅ POST (Create)

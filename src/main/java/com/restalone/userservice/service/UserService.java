@@ -61,4 +61,9 @@ public class UserService {
     public List<User> getUsersByAccessLevel(String accesslevel) {
         return repo.findByAccesslevel(accesslevel);
     }
+    public List<User> getUsersByFirstName(String firstName) {
+        return repo.findByFirstName(firstName);
+    }
+
+    
 }
