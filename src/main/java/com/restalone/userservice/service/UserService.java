@@ -68,4 +68,7 @@ public class UserService {
     public List<User> getUsersByLastName(String lastName) {
         return repo.findByLastName(lastName);
     }
+    public List<User> getUsersByCqType(String cqtype) {
+        return repo.findByCqType(cqtype);
+    }
 }

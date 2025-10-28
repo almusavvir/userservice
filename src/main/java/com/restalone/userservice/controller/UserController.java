@@ -42,6 +42,16 @@ public class UserController {
         return users;
     }
 
+    //Get user by CQ type
+    @GetMapping("/cqtype/{cqtype}")
+    public List<User> getUsersCqtype(@PathVariable String cqtype) {
+        List<User> users = service.getUsersByCqType(cqtype);
+        if (users.isEmpty()) {
+            throw new RuntimeException("No users found with CQ Type - " + cqtype);
+        }
+        return users;
+    }
+
     // ✅ POST (Create)
     @PostMapping
     public User createUser(@RequestBody User user) {

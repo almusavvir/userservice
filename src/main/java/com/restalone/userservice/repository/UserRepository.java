@@ -12,4 +12,5 @@ public interface UserRepository extends MongoRepository<User, String> {
     List<User> findByQualification(String qualification);
     List<User> findByAccesslevel(String accesslevel);
     List<User> findByLastName(String lastName);
+    List<User> findByCqType(String cqtype);
 }
